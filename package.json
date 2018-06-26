@@ -1,5 +1,5 @@
 {
-  "name": "movie-calendar",
+  "name": "vue-movie-calendar",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -39,5 +39,21 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ]
+  ],
+  "description": "poll app",
+  "main": "main.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VasilikiLoukoumi/vue-movie-calendar.git"
+  },
+  "keywords": [
+    "poll",
+    "vue"
+  ],
+  "author": "Vasiliki Loukoumi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VasilikiLoukoumi/vue-movie-calendar/issues"
+  },
+  "homepage": "https://github.com/VasilikiLoukoumi/vue-movie-calendar#readme"
 }
