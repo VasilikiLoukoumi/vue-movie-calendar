@@ -5,10 +5,10 @@
    </form>
    <ul v-for = "(movie,index) in movies">
        <li>
-           <p>{{index+1}}. {{movie.movie.toUpperCase()}}</p><button id="plusBtn" v-on:click="voteMovie(index)">👍</button>
-                                                            <button id="minusBtn" v-on:click="downVoteMovie(index)">👎</button><p v-bind:id="movie" class="votes">
-     Votes: {{movie.votes}}
-</p>
+           <p>{{index+1}}. {{movie.movie.toUpperCase()}}</p>
+           <button id="plusBtn" v-on:click="voteMovie(index)">👍</button>
+           <button id="minusBtn" v-on:click="downVoteMovie(index)">👎</button>
+           <p v-bind:id="movie" class="votes">Votes: {{movie.votes}}</p>
        </li>
       
    </ul>
@@ -31,8 +31,12 @@ export default {
                   this.movies.push({ movie: this.movie, votes: 0 });
                   this.movie = "";
               }
-              else {
-                  alert(this.$validator.errors.first('movie'));
+              else {                  
+                  swal({
+                      title: this.$validator.errors.first('movie'),
+                      icon: "warning",
+                      button: "I undestand."
+                  });
               }
 
           });
