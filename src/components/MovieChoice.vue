@@ -1,13 +1,14 @@
-<template>
+﻿<template>
   <div id="MovieChoice">
    <form @submit.prevent="getMovie()">
    <input type="text" placeholder="enter movie you wish to see" v-model="movie" v-validate="{ required: true, min:1 , max:50  }" name = "movie" />
    </form>
    <ul v-for = "(movie,index) in movies">
        <li>
-           <p>{{index+1}}. {{movie.movie}}</p><button id="plusBtn" v-on:click="voteMovie(index)">+</button>
-           <button id="minusBtn" v-on:click="downVoteMovie(index)">-</button><p v-bind:id="movie" class="votes">Votes: {{movie.votes}}</p>
-     
+           <p>{{index+1}}. {{movie.movie.toUpperCase()}}</p><button id="plusBtn" v-on:click="voteMovie(index)">👍</button>
+                                                            <button id="minusBtn" v-on:click="downVoteMovie(index)">👎</button><p v-bind:id="movie" class="votes">
+     Votes: {{movie.votes}}
+</p>
        </li>
       
    </ul>
@@ -49,7 +50,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped> 
 button{
 display:inline-block;
 padding:4px;
@@ -63,8 +64,9 @@ input{
 border-radius:8px;
 padding:10px;
 }
-.alert{
-    border:2px solid indianred;
-    padding:5px;
+li {
+background-color: white;
+border-radius: 8px;
 }
+
 </style>
