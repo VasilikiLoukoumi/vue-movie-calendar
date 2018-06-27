@@ -1,11 +1,14 @@
 <template>
   <div id="MovieChoice">
    <form @submit.prevent="getMovie()">
-   <input type="text" placeholder="enter movie you wish to see" v-model="movie"/>
+   <input type="text" placeholder="enter movie you wish to see" v-model="movie" v-validate="{ required: true, min:1 , max:50  }" name = "movie" />
    </form>
    <ul v-for = "(movie,index) in movies">
-   <li><p>{{index+1}}. {{movie.movie}}</p><button id="plusBtn" v-on:click="voteMovie(index)">+</button>
-   <button id="minusBtn" v-on:click="downVoteMovie(index)">-</button><p v-bind:id="movie" class="votes">Votes: {{movie.votes}}</p></li>
+       <li>
+           <p>{{index+1}}. {{movie.movie}}</p><button id="plusBtn" v-on:click="voteMovie(index)">+</button>
+           <button id="minusBtn" v-on:click="downVoteMovie(index)">-</button><p v-bind:id="movie" class="votes">Votes: {{movie.votes}}</p>
+     
+       </li>
       
    </ul>
   </div>
@@ -21,9 +24,19 @@ export default {
   }
   },
   methods: {
-  getMovie: function(){
-  this.movies.push({ movie:this.movie,votes:0 });
-  this.movie = "";  
+      getMovie: function () {
+          this.$validator.validateAll().then((result) => {
+              if (result) {
+                  this.movies.push({ movie: this.movie, votes: 0 });
+                  this.movie = "";
+              }
+              else {
+                  alert(this.$validator.errors.first('movie'));
+              }
+
+          });
+              
+         
   },
   voteMovie: function(index){  
       this.movies[index].votes++;
@@ -49,5 +62,9 @@ list-style:none;
 input{
 border-radius:8px;
 padding:10px;
+}
+.alert{
+    border:2px solid indianred;
+    padding:5px;
 }
 </style>
