@@ -1,11 +1,11 @@
 <template>
   <div id="MovieChoice">
-   <form @submit.prevent="getMovie">
+   <form @submit.prevent="getMovie()">
    <input type="text" placeholder="enter movie you wish to see" v-model="movie"/>
    </form>
    <ul v-for = "(movie,index) in movies">
-   <li><p>{{index+1}}. {{movie}}</p><button id="plusBtn" v-on:click="voteMovie">+</button>
-   <button id="minusBtn" v-on:click="downVoteMovie">-</button><p v-bind:id="movie" class="votes">Votes: 0</p></li>
+   <li><p>{{index+1}}. {{movie.movie}}</p><button id="plusBtn" v-on:click="voteMovie(index)">+</button>
+   <button id="minusBtn" v-on:click="downVoteMovie(index)">-</button><p v-bind:id="movie" class="votes">Votes: {{movie.votes}}</p></li>
       
    </ul>
   </div>
@@ -17,34 +17,21 @@ export default {
   data: function() {
   return{
   movie: "",
-  movies:[],
-  votes:0,
-  isActive:false,
-  movieId:""
+    movies: []
   }
   },
   methods: {
   getMovie: function(){
-  this.movies.push(this.movie);
-  this.movieId = this.movie;
-  this.movie = "";
-  this.votes = 0;
-  this.isActive = true;  
+  this.movies.push({ movie:this.movie,votes:0 });
+  this.movie = "";  
   },
-  voteMovie: function(){  
-  if(this.isActive){
-  this.votes++;
-  this.isActive = false;
-  document.getElementById(this.movieId).innerHTML = "Votes: "+ this.votes;
-  }  
+  voteMovie: function(index){  
+      this.movies[index].votes++;
   },
-  downVoteMovie: function(){ 
-  if(this.isActive){
-  this.votes--;
-  this.isActive = false; 
-  document.getElementById(this.movieId).innerHTML = "Votes: "+ this.votes;
+  downVoteMovie: function(index){ 
+      this.movies[index].votes--;
   }
-  }
+  
   }
 }
 </script>
