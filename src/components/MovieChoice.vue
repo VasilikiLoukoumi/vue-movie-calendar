@@ -3,7 +3,7 @@
    <form @submit.prevent="getMovie()">
    <input type="text" placeholder="enter movie you wish to see" v-model="movie" v-validate="{ required: true, min:1 , max:50  }" name = "movie" />
    </form>
-   <ul v-for = "(movie,index) in movies" key="movie.movie">
+   <ul v-for = "(movie,index) in movies" :key="movie.movie">
        <li>
            <p>{{index+1}}. {{movie.movie.toUpperCase()}}</p>
            <button id="plusBtn" v-on:click="voteMovie(index)">👍</button>
