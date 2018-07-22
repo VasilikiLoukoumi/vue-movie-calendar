@@ -32,7 +32,7 @@ export default {
                   this.movie = "";
               }
               else {                  
-                  swal({
+                  this.$swal({
                       title: this.$validator.errors.first('movie'),
                       icon: "warning",
                       button: "I undestand."

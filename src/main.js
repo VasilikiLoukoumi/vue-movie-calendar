@@ -1,9 +1,12 @@
 import Vue from 'vue'
 import App from './App.vue'
 import VeeValidate from 'vee-validate';
-import swal from 'sweetalert';
+import VueSweetalert2 from 'vue-sweetalert2';
+
+Vue.use(VueSweetalert2);
 
 Vue.use(VeeValidate);
+
 
 Vue.config.productionTip = false
 
