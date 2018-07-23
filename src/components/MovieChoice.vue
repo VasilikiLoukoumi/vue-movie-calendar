@@ -1,7 +1,7 @@
 ﻿<template>
   <div id="MovieChoice">
    <form @submit.prevent="getMovie()">
-   <input type="text" placeholder="enter movie you wish to see" v-model="movie" v-validate="{ required: true, min:1 , max:50  }" name = "movie" />
+   <input type="text" placeholder="enter movie you wish to see" v-model="movie" v-validate="{required: true, min:1 , max:50}" name = "movie" />
    </form>
    <ul v-for = "(movie,index) in movies" :key="movie.movie">
        <li>
@@ -35,7 +35,7 @@ export default {
                   this.$swal({
                       title: this.$validator.errors.first('movie'),
                       icon: "warning",
-                      button: "I undestand."
+                      confirmButtonText:"I undestand."
                   });
               }
 
