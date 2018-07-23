@@ -34,7 +34,7 @@ export default {
               else {                  
                   this.$swal({
                       title: this.$validator.errors.first('movie'),
-                      icon: "warning",
+                      type: "warning",
                       confirmButtonText:"I undestand."
                   });
               }
