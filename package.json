@@ -8,6 +8,8 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@vue/cli-ui": "^3.0.0-rc.10",
+    "@vue/cli-ui-addon-webpack": "^3.0.0-rc.10",
     "sweetalert": "^2.1.0",
     "sweetalert2": "^7.25.6",
     "vee-validate": "^2.1.0-beta.6",
