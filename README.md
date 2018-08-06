@@ -3,7 +3,7 @@ for the movies they prefer. The movie with the most votes is the one they will w
 
 To run app:
 
-1)Clone/Download
-2)Open cmd => cd vue-movie-calendar directory
-3)npm install
-4)npm serve --open
+1) Clone/Download
+2) Open cmd then cd to the vue-movie-calendar directory
+3) run npm install
+4) run npm serve --open
