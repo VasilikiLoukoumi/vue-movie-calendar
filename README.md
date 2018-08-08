@@ -8,4 +8,4 @@ To run app:
 3) cd to the vue-movie-calendar directory
 4) type npm install
 5) type vue ui
-6) in the vue ui, click serve -> run task -> open app
+6) in the vue ui, click import project -> serve -> run task -> open app
